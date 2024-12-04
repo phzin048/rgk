@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGK</title>
+    <link rel="stylesheet" href="home.css">
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+    
+</head>
+<body>
+    <!-- Console de texto com animação -->
+    <div id="console-background">
+        <div class="msg">Scanning</div>
+        <div id="console"></div>
+    </div>
+
+<!-- Tela de login -->
+<div id="login-screen" class="screen">
+    <!-- Círculo flutuante com borda verde e logo -->
+    <div class="floating-circle">
+        <img src="rgk-logo.jpg" alt="Logo" class="logo">
+    </div>
+    <br> 
+    <br>
+    <br>
+    <br>
+    <h1>Bem-vindo</h1>
+    <p>Painel RGK</p>
+    <p>Insira suas credenciais para continuar</p>
+    <input type="text" placeholder="Usuário" id="username">
+    <br>
+    <input type="password" placeholder="Senha" id="password">
+    <br>
+    <button id="login-button" onclick="login()">Entrar</button>  
+
+    <!-- Botões circulares para WhatsApp, Discord e Telegram -->
+    <div class="circular-buttons">
+        <a href="https://chat.whatsapp.com/GVYfkQLcUY35otUnp3CVeQ" target="_blank">
+            <button class="circular-button">
+                <i class="fab fa-whatsapp"></i>  <!-- Ícone WhatsApp -->
+            </button>
+        </a>
+        <a href="https://discord.gg/yJnTU3aE" target="_blank">
+            <button class="circular-button">
+                <i class="fab fa-discord"></i>  <!-- Ícone Discord -->
+            </button>
+        </a>
+        <a href="https://t.me/canalrgk" target="_blank">
+            <button class="circular-button">
+                <i class="fab fa-telegram"></i>  <!-- Ícone Telegram -->
+            </button>
+        </a>
+    </div>
+</div>
+
+    <!-- Conteúdo principal (será exibido após login) -->
+    <div id="main-content" class="hidden">
+        <!-- Cards de livros, métodos e consulta -->
+        <div class="card-container hidden" id="cards-container">
+            <a href="livros.html" class="card">
+                <h3>Livros</h3>
+                <p>Conferir livros</p>
+            </a>
+            <br>
+            <a href="metodos.html" class="card">
+                <h3>Métodos</h3>
+                <p>Explorar métodos</p>
+            </a>
+            <br>
+            <a href="consultas.html" class="card">
+                <h3>Consulta</h3>
+                <p>Realizar consulta</p>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        var intervalID = window.setInterval(updateScreen, 200);
+        var c = document.getElementById("console");
+
+        var txt = [
+            "FORCE: XX0022. ENCYPT://50.282.2345",
+            "TRYPASS: ********* AUTH CODE: ALPHA BY PH: 8___ PRIORITY 1",
+            "RETRY: DOXBIN//WPP/DC",
+            "Z:> /TOKEN/LIVROS/DADOS/ EXECUTE -PLAYERS 438",
+            "================================================",
+            "...",
+            "================== E R R O R =========================",
+            "...",
+            "================== E R R O R =========================",
+            "...",
+            "================== E R R O R =========================",
+            "Priority 1 // local / scanning...",
+            "scanning ports...",
+            "RgK WhatsApp: -1010010?>R//3",
+            "BACKDOOR FOUND (23.45.23.010101110)",
+            "BACKDOOR FOUND (13.66.23.12.0024574121210)",
+            "BACKDOOR FOUND (94.33.10.92.00458544)",
+            "RAT INFILTRATION (45.63.22.1759912)",
+"ACCESS BREACH ALERT (180.232.124.15.29938472)",
+"TROJAN FOUND (38.7365.2134.582.00128461)",
+"ERROR 404: SYSTEM INTEGRITY CORRUPTED",
+"SECURITY WARNING: UNAUTHORIZED ACCESS ATTEMPT",
+"SHUTDOWN IMMINENT: SYSTEM RECOVERY REQUIRED",
+"WARNING: DATA INTERCEPTION DETECTED",
+"BACKDOOR INJECTION: SYSTEM COMPROMISED",
+"CORE FAILSAFE: BREACH DETECTED, LOCKING SYSTEM",
+"ENCRYPTION FAILURE: DATA LEAKAGE PROBABLE",
+            "...",
+            "===================================",
+            "=========☢ bY ph ☢=========",
+            "===================================",
+            "BRUTE.EXE -r -z",
+            "CONTACT: support@rgk.com",
+            "...locating vulnerabilities...",
+            "...vulnerabilities found...",
+            "MCP/> DEPLOY CPU",
+            "SCAN: __ 0100.0220.0554.0870",
+            "IP: __ 0020.1111.0553.0080",
+
+            "Z:> /TOKEN/LIVROS/DADOS/ EXECUTE -PLAYERS 438",
+            "================== N U K E   S Y T E M =========================",
+            "================== N U K E   S Y T E M =========================",
+            "================== N U K E   S Y T E M =========================",
+            "================== N U K E   S Y T E M =========================",
+            "...",
+            "...",
+            "DELETE: __ 0101.0180.0285.0550",
+            "SCAN: __ 0012.490.0553.0030",
+            "GEO: __ -145.040.054.0080",
+            "DELETE: __ 0020.07560.0553.0080",
+            "RgK Site: https://www.rgk.com",
+            "===================================",
+            "=========ϟ R A G N A R O K ϟ=========",
+            "===================================",
+            "SHUTDOWN INITIATED... SYSTEM STANDBY",
+            "=========ϟ C R E D I T S ϟ=========",
+            "Hartmann RGK",
+            "Turco RGK",
+            "Lerrin RGK",
+            "Spinelli RGK",
+            "Andrin RGK",
+            "PH RGK",
+            "Candy RGK",
+            "Leyf RGK",
+            "Rick RGK",
+            "Size RGK",
+            "Franju RGK",
+            "Gabriel RGK",
+            "Knome RGK",
+            "===================================",
+            "================== SHUTDOWN IMMINENT: SYSTEM RECOVERY REQUIRED =========================",
+            "==================S H U T D O W N -- S E R V E R =========================",
+            "5",
+            "4",
+            "3",
+            "2",
+            "1",
+            "...",
+            "...",
+            "E R R O R",
+            "================== E R R O R =========================",
+            "...",
+            "================== E R R O R =========================",
+            "BACKDOOR FOUND (547.7.45.45.60)",
+            "BACKDOOR FOUND (13.2356.247.210)",
+            "BRUTE.EXE -7 -Y",
+            "FGT: support.c457",
+            "...56 vulnerabilities...",
+            "...vulnerabilities NOT found...",
+            "MCP/> DEPLOY GROUP",
+            "SCAN: __ 0111.089.054.0770",
+            "===================================",
+            "IP: __ 0220.1811.0553.0880",
+            "Priority 9367 // local / scanning...",
+            "scanning ports...",
+            "WhatsApp: -105710?>R//3",
+            "BACKDOOR FOUND (23.45.23.0178070)",
+            "BACKDOOR FOUND (679.664.234.12.00245710)",
+            "BACKDOOR FOUND (94.3433.1043.924.00679544)",
+            "...",
+            "BACKDOOR DETECTED (203.45.91.125.3030)",
+"PORT SCAN IN PROGRESS (122.34.55.200.5601)",
+"INFECT.EXE -8 -T",
+"FTF: server.c084",
+"128 vulnerabilities detected",
+"no critical threats found",
+"===================================",
+"SCAN STARTED: SYSTEM UNDER REVIEW",
+"SCAN: __ 0110.054.112.0487",
+"IP: __ 0199.1245.0680.0932",
+"Priority 4513 // external / checking",
+"scanning servers",
+"Telegram: +454?>G//2",
+            "...",
+        ];
+
+        var docfrag = document.createDocumentFragment();
+
+        function updateScreen() {
+            // Embaralha o array "txt"
+            txt.push(txt.shift());
+            // Reconstrói o fragmento de documento
+            txt.forEach(function(e) {
+                var p = document.createElement("p");
+                p.textContent = e;
+                docfrag.appendChild(p);
+            });
+            // Limpa o DOM
+            while (c.firstChild) {
+                c.removeChild(c.firstChild);
+            }
+            c.appendChild(docfrag);
+        }
+
+        // Função de login
+        function login() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            
+            // Lógica simples de verificação de login (aqui você pode adicionar mais validações)
+            if (username === "admin" && password === "1234") {
+                // Se o login for bem-sucedido, esconde a tela de login e mostra o conteúdo principal
+                document.getElementById("login-screen").classList.add("fade-out");
+                document.getElementById("console-background").classList.add("fade-out");
+                document.getElementById("main-content").classList.remove("hidden");
+                document.getElementById("main-content").classList.add("fade-in");
+
+                // Exibe os cards com fade-in
+                document.getElementById("cards-container").classList.remove("hidden");
+                document.getElementById("cards-container").classList.add("fade-in");
+
+                // Remove o console
+                setTimeout(function() {
+                    document.getElementById("console-background").style.display = "none";
+                }, 1000);
+            } else {
+                alert("Credenciais incorretas");
+            }
+        }
+
+        // Nova função: Exibe um alerta personalizado
+        function showAlert(message) {
+            alert(message);
+        }
+
+        // Exemplo de chamada da nova função
+        // showAlert("Você entrou com sucesso!");
+    </script>
+    <script src="home.js"></script>
+</body>
+</html>

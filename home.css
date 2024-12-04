@@ -1,0 +1,356 @@
+/* Reset básico */
+body {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: black;
+    color: #00ff00;
+    overflow: hidden;
+}
+
+/* Estilos gerais */
+.screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    transition: opacity 1s ease, transform 1s ease;
+    position: relative;
+}
+
+/* Círculo flutuante */
+.floating-circle {
+    width: 150px;
+    height: 150px;
+    background-color: transparent;
+    border: 5px solid #00ff00;
+    border-radius: 50%;
+    position: absolute;
+    top: 10%;
+    animation: float 3s ease-in-out infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Logo dentro do círculo */
+.logo {
+    width: 100%;  /* Preenche completamente o círculo */
+    height: 100%;
+    object-fit: cover;  /* Ajusta a imagem para cobrir o espaço do círculo sem distorcer */
+    border-radius: 50%;  /* Faz a imagem circular */
+}
+
+/* Animação do círculo flutuante */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.fade-in {
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+/* Fundo com animação de texto */
+#console-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #00ff00;
+    overflow: hidden;
+    z-index: -1; /* Mantém o fundo atrás do conteúdo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Console de animação */
+#console {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    font-size: 2vh;
+    color: limegreen;
+    overflow-y: hidden; /* Impede rolagem */
+    white-space: nowrap; /* Evita que o texto quebre em várias linhas */
+    display: flex;
+    flex-direction: column; /* Exibe as mensagens de forma empilhada */
+}
+
+/* Tela de carregamento */
+#loading-screen {
+    background-color: black;
+    color: #00ff00;
+    text-align: center;
+}
+
+.loading-spinner {
+    border: 5px solid #00ff00;
+    border-top: 5px solid black;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Tela de login ajustada para o lado direito com altura maior */
+#login-screen {
+    background: linear-gradient(135deg, #000 20%, #006400 80%);
+    box-shadow: 0 0 20px #00ff00;
+    border-radius: 10px;
+    padding: 20px;
+    width: 350px; /* Diminuí a largura da caixa de login */
+    height: 870px; /* Aumentei a altura da caixa de login */
+    text-align: center;
+    border: 2px solid #00ff00;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+input {
+    margin: 10px 0;
+    padding: 10px;
+    width: calc(100% - 20px);
+    border: none;
+    outline: none;
+    background: black;
+    color: #00ff00;
+    border-radius: 5px;
+    border-bottom: 2px solid #00ff00;
+    font-size: 16px;
+}
+
+button {
+    padding: 8px 16px; /* Botões menores */
+    margin-top: 20px;
+    background: #006400;
+    color: #00ff00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px; /* Fonte menor */
+    transition: transform 0.3s, background 0.3s;
+    width: 100%;
+}
+
+button:hover {
+    transform: scale(1.05); /* Botão com leve aumento ao passar o mouse */
+    background: #008000;
+}
+
+/* Ícones de redes sociais */
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    transition: transform 0.3s;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+}
+
+/* Estilos da tela de login após autenticação */
+#main-content {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center; /* Centraliza os cards */
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    background-color: #006400;
+    color: #00ff00;
+    padding: 10px 20px;
+    border: 1px solid #00ff00;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.tab-button:hover {
+    background-color: #008000;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content.hidden {
+    display: none;
+}
+
+/* Cards */
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    margin-top: 50px;
+    animation: fadeIn3D 1s ease-in-out forwards;
+    display: none; /* Inicialmente escondido */
+}
+
+.card {
+    background-color: #006400;
+    color: #00ff00;
+    width: 200px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #00ff00;
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.card:hover {
+    transform: rotateY(10deg) rotateX(5deg);
+}
+
+/* Animação 3D de fade in */
+@keyframes fadeIn3D {
+    0% {
+        opacity: 0;
+        transform: perspective(600px) rotateX(60deg);
+    }
+    100% {
+        opacity: 1;
+        transform: perspective(600px) rotateX(0deg);
+    }
+}
+
+/* Caixa de mensagem com animação */
+.msg {
+    font-family: monospace;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 5vh;
+    padding-top: 5vh;
+    background: red;
+    box-shadow: 0 0 30px red;
+    text-shadow: 0 0 20px white;
+    color: white;
+    width: 20vw;
+    height: 15vh;
+    position: absolute;
+    left: 50%;
+    margin-left: -10vw;
+    top: 50%;
+    margin-top: -5vh;
+    text-align: center;
+    min-width: 200px;
+    animation-name: blink;
+    animation-duration: 0.6s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+}
+
+/* Animação de piscar */
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Botões circulares para WhatsApp, Discord e Telegram */
+.circular-buttons {
+    margin-top: 30px; /* Espaço entre o botão de entrar e os botões circulares */
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espaço entre os botões */
+}
+
+.circular-button {
+    width: 50px;  /* Tamanho do botão circular */
+    height: 50px;
+    background-color: #006400;
+    color: #00ff00;
+    border-radius: 50%; /* Faz os botões circulares */
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.circular-button:hover {
+    background-color: #008000;
+    transform: scale(1.1); /* Aumenta o botão ao passar o mouse */
+}
+
+.circular-button i {  /* Para os ícones dentro dos botões */
+    font-size: 24px; /* Ajusta o tamanho do ícone */
+}
+
+/* Layout de redes sociais no rodapé */
+.footer-social {
+    position: fixed;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
